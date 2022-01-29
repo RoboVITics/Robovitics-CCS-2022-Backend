@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const Question = require("./QuestionSetModel");
 
 const RegistrationModel = mongoose.Schema({
     name : {type : String, required : true},
@@ -20,10 +21,13 @@ RegistrationModel.methods.performTestConfigs = function(){
     this.testEndAt = date;
 }
 
-RegistrationModel.methods.allotQuestionSet = function() {
-    
+RegistrationModel.methods.allotQuestionSet = async function() {
+    const count = await Question.countDocuments();
+    var set = await Question.findOne().skip(Math.floor(Math.random * count)).exec();
+    this.QuestionSet = set;
 }
 
 const Registration = mongoose.model("Registration", RegistrationModel);
 
 module.exports = Registration;
+
