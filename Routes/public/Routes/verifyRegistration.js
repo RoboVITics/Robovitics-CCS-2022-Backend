@@ -11,7 +11,7 @@ router.post('/', async (req, res) => {
         var details = await Registration.findOne({ email }).populate('slot', 'code timing isActive');
         if ( details == null )
         {
-            res.sendStatus(403);
+            res.json({status : 403, message : "Registration Not Found"});
         }
         else {
             res.json(details);
