@@ -16,6 +16,7 @@ app.get('/api/connection', (req, res) => {
 });
 
 app.use('/api/public', require('./Routes/public/public'));
+app.use('/api/config', require('./Routes/Configuration/Configuration'));
 
 const server = http.createServer(app);
 server.listen(PORT, () => `Server running on PORT ${PORT}`);

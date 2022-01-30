@@ -1,12 +1,13 @@
 const mongoose = require("mongoose");
+const Question = require('./QuestionModel');
 
-const QuestionSet = mongoose.Schema({
-    CODE : String,
-    CSE : [String],
-    MEC : [String],
-    ELE : [String],
-    LRM : [String],
+const QuestionSetModel = mongoose.Schema({
+    Code : String,
+    CSE : [Question.schema],
+    MEC : [Question.schema],
+    ELE : [Question.schema],
+    LRM : [Question.schema],
 });
 
-const Question = mongoose.model("Question", QuestionSet);
-module.exports = Question;
+const QuestionSet = mongoose.model("QuestionSet", QuestionSetModel);
+module.exports = QuestionSet;
