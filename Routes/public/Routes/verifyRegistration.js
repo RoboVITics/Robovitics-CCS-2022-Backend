@@ -9,7 +9,7 @@ router.post('/', async (req, res) => {
     email = email.trim();
     if (email != null){
         var details = await Registration.findOne({ email }).populate('slot', 'code timing isActive');
-        if ( details == null )
+        if (details == null)
         {
             res.json({status : 403, message : "Registration Not Found"});
         }
