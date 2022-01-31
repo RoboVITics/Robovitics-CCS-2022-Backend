@@ -10,6 +10,7 @@ const RegistrationModel = mongoose.Schema({
     registrationNumber : {type : String, required : true},
     testStarted : {type : Boolean, default : false},
     hasUploaded : {type : Boolean, default : false},
+    hasCompleted : {type : Boolean, default : false},
     testEndAt : {type : Date},
     QuestionSet : {type : mongoose.Schema.Types.ObjectId, ref : "Question"},
     slot : {type : mongoose.Schema.Types.ObjectId, ref : "Slot"},

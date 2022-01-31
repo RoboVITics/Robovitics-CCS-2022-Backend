@@ -6,7 +6,8 @@ const QuestionSetModel = mongoose.Schema({
     CSE : [Question.schema],
     MEC : [Question.schema],
     ELE : [Question.schema],
-    LRM : [Question.schema],
+    MGM : [Question.schema],
+    LOG : [Question.schema]
 });
 
 const QuestionSet = mongoose.model("QuestionSet", QuestionSetModel);

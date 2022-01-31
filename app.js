@@ -5,10 +5,12 @@ const PORT = process.env.PORT || 4000;
 const cors = require("cors");
 const db = require("./Config/Database");
 const dotenv = require("dotenv");
+
 dotenv.config();
 
 app.use(express.json());
 app.use(cors());
+
 db();
 
 app.get('/api/connection', (req, res) => {
