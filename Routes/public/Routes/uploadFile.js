@@ -8,7 +8,7 @@ const Registration = require('../../../Models/RegistrationModel');
 router.post('/',upload.single("Paper") ,async(req, res) => {
     const id = req.body.id
     console.log(id);
-    if (!ObjectID.isValid(id)){
+    if (ObjectID.isValid(id)){
         var reg = await Registration.findById(id);
         reg.hasUploaded = true,
         reg.hasCompleted = true;
