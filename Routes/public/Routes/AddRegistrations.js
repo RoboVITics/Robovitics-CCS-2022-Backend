@@ -17,7 +17,6 @@ router.post('/', async (req, res) => {
         slot.registered.push(reg);
         await reg.assignSet();
         await reg.save();
-        
     });
     await slot.save();
     res.send("Added");

@@ -11,9 +11,9 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-console.log(process.env.awsAccess);
 
 db();
+
 
 app.get('/api/connection', (req, res) => {
     res.sendStatus(200);
