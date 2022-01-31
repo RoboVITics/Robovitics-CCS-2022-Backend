@@ -20,7 +20,7 @@ RegistrationModel.methods.performTestConfigs = function(){
     this.testStarted = true;
     const currentTime = new Date();
     const newTime = currentTime.getTime() + 60*1000*70;
-    const date = new Date(newTime).toLocaleString(undefined, {timeZone: 'Asia/Kolkata'});
+    const date = new Date(newTime);
     this.testEndAt = date;
 }
 

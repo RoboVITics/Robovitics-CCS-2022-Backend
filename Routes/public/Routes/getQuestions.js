@@ -23,7 +23,9 @@ router.get('/:id', async (req, res) => {
             const qid = regDetails.QuestionSet;
             const questionSet = await QuestionSet.findById(qid);
             await regDetails.save();
-            res.json({TEA : regDetails.testEndAt, SET : questionSet});
+            const currentTime = new Date();
+
+            res.json({CET : currentTime,TEA : regDetails.testEndAt, SET : questionSet});
         }
     }
 })
