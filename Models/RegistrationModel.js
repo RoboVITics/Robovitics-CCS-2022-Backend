@@ -1,8 +1,6 @@
 const mongoose = require("mongoose");
 const QuestionSet = require("./QuestionSetModel");
 
-const Slot = require("./SlotModel");
-
 const RegistrationModel = mongoose.Schema({
     name : {type : String, required : true},
     email : {type : String, required : true},
