@@ -16,10 +16,11 @@ router.get('/:id', async (req, res) => {
             sendStatus(404);
         }
         else {
-            console.log(regDetails.testEndAt);
+            
             if (!regDetails.testEndAt){
                 regDetails.performTestConfigs();
             }
+            
             const qid = regDetails.QuestionSet;
             const questionSet = await QuestionSet.findById(qid);
             await regDetails.save();
