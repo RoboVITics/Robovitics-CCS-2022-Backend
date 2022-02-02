@@ -4,7 +4,7 @@ const QuestionSet = require("./QuestionSetModel");
 const RegistrationModel = mongoose.Schema({
     name : {type : String, required : true},
     email : {type : String, required : true},
-    phone : {type : String, required : true},
+    phone : {type : String},
     registrationNumber : {type : String, required : true},
     testStarted : {type : Boolean, default : false},
     hasUploaded : {type : Boolean, default : false},
@@ -22,10 +22,10 @@ RegistrationModel.methods.performTestConfigs = function(){
     this.testEndAt = date;
 }
 
-RegistrationModel.methods.assignSet = async function() {
-    const count = await QuestionSet.countDocuments();
-    var rand = Math.floor(Math.random() * count);
-    var set = await QuestionSet.findOne().skip(rand);
+RegistrationModel.methods.assignSet = async function(qcode) {
+    // const count = await QuestionSet.countDocuments();
+    // var rand = Math.floor(Math.random() * count);
+    var set = await QuestionSet.findOne({"Code" : qcode});
     this.QuestionSet = set;
 }
 

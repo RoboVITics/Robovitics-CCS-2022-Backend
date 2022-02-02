@@ -14,7 +14,8 @@ router.post('/', async (req, res) => {
             res.json({status : 403, message : "Registration Not Found"});
         }
         else {
-            res.json(details);
+            const currentTime = new Date();
+            res.json({details, currentTime});
         }
     }
     else {

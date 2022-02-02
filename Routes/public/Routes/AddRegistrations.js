@@ -4,18 +4,17 @@ const Slot = require("../../../Models/SlotModel");
 const router = express.Router();
 
 router.post('/', async (req, res) => {
-    var { data, slotCode } = req.body;
+    var { data, slotCode, qcode } = req.body;
     const slot = await Slot.findOne({code : slotCode});
     slot.rcount = slot.rcount - data.length;
     data.forEach(async element => {
-        var { email, name, phone, registrationNumber } = element;
+        var { email, name, registrationNumber } = element;
         email = email.trim();
         name = name.trim();
-        phone = phone.trim();
         registrationNumber = registrationNumber.trim();
-        var reg = Registration({name : name, email : email, phone : phone, registrationNumber : registrationNumber, slot : slot});
+        var reg = Registration({name : name, email : email, registrationNumber : registrationNumber, slot : slot});
         slot.registered.push(reg);
-        await reg.assignSet();
+        await reg.assignSet(qcode);
         await reg.save();
     });
     await slot.save();
