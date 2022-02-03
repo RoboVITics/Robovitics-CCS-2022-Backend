@@ -17,7 +17,7 @@ const RegistrationModel = mongoose.Schema({
 RegistrationModel.methods.performTestConfigs = function(){
     this.testStarted = true;
     const currentTime = new Date();
-    const newTime = currentTime.getTime() + 60*1000*70;
+    const newTime = currentTime.getTime() + 60*1000*15;
     const date = new Date(newTime);
     this.testEndAt = date;
 }

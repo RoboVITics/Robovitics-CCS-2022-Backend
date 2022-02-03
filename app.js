@@ -9,7 +9,7 @@ const dotenv = require("dotenv");
 dotenv.config();
 
 app.use(express.json());
-app.use(cors());
+app.use(cors('https://ccsb.robovitics.in'));
 
 
 db();
