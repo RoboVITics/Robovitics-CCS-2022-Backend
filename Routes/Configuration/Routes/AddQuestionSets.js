@@ -6,7 +6,7 @@ router.post('/', async (req, res) => {
     const {Code, CSE, MEC, ELE, MGM, LOG} = req.body;
     var qsm = QuestionSet({Code, CSE, MEC, ELE, MGM, LOG});
     await qsm.save();
-    res.json(qsm);
+    res.json(qsm)
 })
 
 
